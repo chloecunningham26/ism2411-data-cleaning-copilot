@@ -27,3 +27,36 @@ def clean_column_names(
         .str.replace(r"[^\w\s]", "", regex=True)
     )
     return df
+
+
+# This function handles missing values in the price and quantity columns
+def handle_missing_values(
+    df: pd.DataFrame,
+) -> pd.DataFrame:
+    """
+    Handle missing values in the dataset.
+    - Fill missing prices with the median price.
+    - Fill missing quantities with zero.
+    """
+    if 'price' in df.columns:
+        median_price = df['price'].median()
+        df['price'] = df['price'].fillna(median_price)
+    if 'quantity' in df.columns:
+        df['quantity'] = df['quantity'].fillna(0)
+    return df
+
+
+
+# This function removes rows with invalid data such as negative prices or quantities
+def remove_invalid_rows(
+    df: pd.DataFrame,
+) -> pd.DataFrame:
+    """
+    Remove rows with invalid data.
+    - Remove rows with negative prices or quantities.
+    """
+    if 'price' in df.columns:
+        df = df[df['price'] >= 0]
+    if 'quantity' in df.columns:
+        df = df[df['quantity'] >= 0]
+    return df   
