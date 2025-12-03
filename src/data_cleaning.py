@@ -13,4 +13,17 @@ def load_data(file_path: str):
     df = pd.read_csv(file_path)
     return df
 
-
+# This function standardizes column names by making them lowercase and using underscores
+def clean_column_names(
+    df: pd.DataFrame,
+) -> pd.DataFrame:
+    """
+    Standardize column names to lowercase with underscores.
+    """
+    df.columns = (
+        df.columns.str.strip()
+        .str.lower()
+        .str.replace(" ", "_")
+        .str.replace(r"[^\w\s]", "", regex=True)
+    )
+    return df
