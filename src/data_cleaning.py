@@ -3,6 +3,7 @@ This script loads a raw sales dataset, cleans common data quality issues,
 and saves a cleaned version for analysis and reporting.
 """
 
+
 import pandas as pd
 # This function loads the raw CSV file into a pandas DataFrame
 
@@ -30,20 +31,21 @@ def clean_column_names(
 
 
 # This function handles missing values in the price and quantity columns
-def handle_missing_values(
-    df: pd.DataFrame,
-) -> pd.DataFrame:
+def handle_missing_values(df):
     """
-    Handle missing values in the dataset.
-    - Fill missing prices with the median price.
-    - Fill missing quantities with zero.
+    Convert price and quantity to numeric values and fill missing values with 0.
+    Invalid values will be turned into NaN and then filled.
     """
-    if 'price' in df.columns:
-        median_price = df['price'].median()
-        df['price'] = df['price'].fillna(median_price)
-    if 'quantity' in df.columns:
-        df['quantity'] = df['quantity'].fillna(0)
+    if "price" in df.columns:
+        df["price"] = pd.to_numeric(df["price"], errors="coerce")
+        df["price"] = df["price"].fillna(0)
+
+    if "quantity" in df.columns:
+        df["quantity"] = pd.to_numeric(df["quantity"], errors="coerce")
+        df["quantity"] = df["quantity"].fillna(0)
+
     return df
+
 
 
 
@@ -77,3 +79,5 @@ if __name__ == "__main__":
     print("Cleaning complete. First few rows:")
     print(df_clean.head())
 # This function removes rows with invalid data such as negative prices or quantities
+
+
