@@ -1,11 +1,10 @@
 # ism2411-data-cleaning-copilot
 # Sales Data Cleaning Project
 
-## Overview
-This project demonstrates how to clean and prepare raw sales data using Python and pandas. The dataset contained inconsistencies such as duplicate entries, inconsistent text formatting, and numeric values stored as strings. The goal was to transform the raw data into a clean, usable CSV file for analysis.
+Overview: This project demonstrates how to clean and prepare raw sales data using Python and pandas. The dataset contained inconsistencies such as duplicate entries, inconsistent text formatting, and numeric values stored as strings. The goal was to transform the raw data into a clean, usable CSV file for analysis.
 
-## Project Structure
-ism2411-data-cleaning-copilot/
+
+Project Structure: ism2411-data-cleaning-copilot/
     data/
 sales_data.csv # Original raw dataset
     src
@@ -14,21 +13,21 @@ sales_data.csv # Original raw dataset
  README.md # Project documentation
 
 
-## Tools & Technologies 
-- **pandas** for data manipulation  
-- **VS Code** for development  
-- **Git & GitHub** for version control  
+Tools: 
+pandas for data manipulation  
+VS Code for development  
+Git & GitHub for version control  
 
-## Features
-- Loads raw sales data from CSV  
-- Cleans text columns 
-- Converts numeric columns to correct data types  
-- Handles missing or invalid data  
-- Saves the cleaned dataset to `sales_data_clean.csv`  
+Fetures:
+-Loads raw sales data from CSV  
+-Cleans text columns 
+-Converts numeric columns to correct data types  
+-Handles missing or invalid data  
+-Saves the cleaned dataset to `sales_data_clean.csv`  
 
-## How to Run
+How to run:
 1. Ensure Python 3 is installed on your system.  
-2. Install dependencies:
+2.  Install dependencies:
    python3 -m pip install pandas
    push run button, and see cleaned results 
 
